@@ -28,17 +28,12 @@ def measure(func):
     return wrapper
 
 
-@measure
-def MinMaxAlgorithm():
-    """A function to implement an algorithm that given an M X N  matrix return 
-    all numbers that are the maximum value inits row but the minimum in its column"""
+def InputFunction():
     # get the size of the matrix from user
     rows = int(input("Input number of rows: "))
     columns = int(input("Input number of columns: "))
-    
     # Initialize an empty matrix
     matrix = []
-    
     # get input values for each element
     for i in range(rows):
         try:
@@ -50,6 +45,15 @@ def MinMaxAlgorithm():
         except Exception as e:
             print(e)
     
+    solution = MinMaxAlgorithm(matrix)
+
+    return solution
+
+
+@measure
+def MinMaxAlgorithm(matrix):
+    """A function to implement an algorithm that given an M X N  matrix return 
+    all numbers that are the maximum value inits row but the minimum in its column"""
     # Find the maximum value in each row that is also the minimum in its column
     result = []
     print(f'''\nInput matrix: {matrix}''')
@@ -71,13 +75,7 @@ def MinMaxAlgorithm():
 
     # Return the result
     return result
-output = MinMaxAlgorithm()
-test = testFunction()
 
-print(f'''
 
-\nOutput:{output}
-
-\n Test: {test}
-
-''')
+output = InputFunction()
+# test = testFunction()
